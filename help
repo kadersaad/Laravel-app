@@ -1,0 +1,20 @@
+//start project
+php artisan serve
+
+//create controller 
+php artisan make:controller kaderController
+
+//create migration
+php artisan make:migration create_book_table
+
+//add somthing in table
+php artisan make:migration add_to_student_department --table=students
+
+//create model
+php artisan make:model Student 
+
+//create model and migration
+php artisan make:model Student -m
+
+//update to database
+php artisan migrate
