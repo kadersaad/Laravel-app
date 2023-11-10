@@ -10,6 +10,13 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    public function __construct(){
+        //$this->middleware("auth"); // for all 
+        //$this->middleware("auth")->only("store","create","edit","delete","update"); 
+        $this->middleware("auth")->except(["index","show"]); 
+    }
+    
     public function index()
     {
         // Retrieve a paginated list of products using the Product model.

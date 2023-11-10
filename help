@@ -27,3 +27,17 @@ php artisan make:model Student -m
 
 //update to database
 php artisan migrate
+
+//for add UI and Login & register
+composer require laravel/ui
+
+php artisan ui bootstrap --auth
+
+npm install
+npm run dev
+
+//for not use npm run dev all time
+npm run build
+
+//after this commande add 
+php artisan migrate

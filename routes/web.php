@@ -17,7 +17,12 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return redirect()->route('products.index');
+});
+
+Route::get('/home', function () {
+    return redirect()->route('products.index');
 });
 
 
@@ -95,3 +100,9 @@ Route::get('/kader/test/create', [kaderController::class,'create']);
 
 // call just ProductController, and call all Route in this Controller
 Route::resource('products',ProductController::class);
+
+//Route::resource('products',ProductController::class)->middleware('auth');
+
+Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
