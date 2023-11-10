@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\kaderController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,3 +92,6 @@ Route::get('/kader/test/index', [kaderController::class,'index']);
 Route::get('/kader/test/show', [kaderController::class,'show']);
 Route::get('/kader/test/edit', [kaderController::class,'edit']);
 Route::get('/kader/test/create', [kaderController::class,'create']);
+
+// call just ProductController, and call all Route in this Controller
+Route::resource('products',ProductController::class);

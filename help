@@ -1,11 +1,20 @@
+//create Project 
+composer create-project laravel/laravel example-app
+
 //start project
 php artisan serve
 
 //create controller 
 php artisan make:controller kaderController
 
+//create controller and Model with CRUD
+ php artisan make:controller ProductController --resource --model=Product
+
 //create migration
 php artisan make:migration create_book_table
+
+//create migration with name table products
+php artisan make:migration create_book_table --create=products
 
 //add somthing in table
 php artisan make:migration add_to_student_department --table=students
