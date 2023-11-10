@@ -37,6 +37,9 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
+        // dd($request->all());
+
         //condition
         $request->validate([
             'name'=> 'required',
@@ -48,7 +51,7 @@ class ProductController extends Controller
         $input = $request->all();
         //save image
         if($image = $request->file('image')) {
-            $destinationPath = '/images/';
+            $destinationPath = 'images/';
             $profileImage = date('YmdHis').".".$image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input["image"] = "$profileImage";
@@ -91,7 +94,7 @@ class ProductController extends Controller
         $input = $request->all();
         //save image
         if($image = $request->file('image')) {
-            $destinationPath = '/images/';
+            $destinationPath = 'images/';
             $profileImage = date('YmdHis').".".$image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input["image"] = "$profileImage";
@@ -100,7 +103,7 @@ class ProductController extends Controller
         }
 
         //model
-        Product::update($input);
+        $product->update($input);
         return redirect()->route("products.index")->with("success","Products Updated successfully");
     }
 
