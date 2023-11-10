@@ -79,6 +79,7 @@ Route::get('/post/panel', function () {
 
 Route::get('/create/user', function () {
     return view('users.create')
-                ->with('name1','saad')
+                ->with('name1','<h1>saad</h1>')
+                ->with('name','<h1>saad</h1>')
                 ->with('name2','salim');
 }); 
