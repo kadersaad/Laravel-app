@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,7 @@ Route::get('/posts/{post}/comments/{comment}', function (string $postId, string 
 
 
 // The '{name?}' part indicates a route parameter named 'name' that is optional (the '?' makes it optional).
-Route::get('/user/{name?}', function (string $name = 'Kader') {
+Route::get('/myuser/{name?}', function (string $name = 'Kader') {
     // Inside the route callback function:
     
     // If a 'name' parameter is provided in the URL, it will be captured and passed to the $name variable.
@@ -55,3 +56,29 @@ Route::get('/saad', function () {
     // In this case, it redirects to the route with the name 'kader', which corresponds to '/user/admin/kader'.
     return redirect()->route('kader');
 });
+
+//first method
+Route::get('/kader/saad', function () {
+    return view('kader', ['name'=> 'This is Kader Ghez']);
+});
+//secend method in laravel 10
+//Route::view('/kader/saad','kader', ['name'=> 'This is Kader Ghez']);
+
+
+Route::get('/admin/panel', function () {
+    return view('admin.index', ['name'=> 'Welcome Admin']);
+});
+
+Route::get('/user/panel', function () {
+    return view('users.index', ['name'=> 'Welcome User']);
+});
+
+Route::get('/post/panel', function () {
+    return view::first(['admin.create', 'admin.index'], ['name'=> 'Welcome Admin']);  // if not found view create go to view index
+});
+
+Route::get('/create/user', function () {
+    return view('users.create')
+                ->with('name1','saad')
+                ->with('name2','salim');
+}); 
