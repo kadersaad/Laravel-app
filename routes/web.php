@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
+use App\Http\Controllers\kaderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,3 +84,10 @@ Route::get('/create/user', function () {
                 ->with('name','<h1>saad</h1>')
                 ->with('name2','salim');
 }); 
+
+// use controller
+
+Route::get('/kader/test/index', [kaderController::class,'index']);
+Route::get('/kader/test/show', [kaderController::class,'show']);
+Route::get('/kader/test/edit', [kaderController::class,'edit']);
+Route::get('/kader/test/create', [kaderController::class,'create']);
