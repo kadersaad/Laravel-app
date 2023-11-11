@@ -16,7 +16,7 @@ class PassportAuthController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email'=> $request->email,
-            'password'=> $request->password,
+            'password'=> bcrypt($request->password),
         ]);
         $token = $user->createToken('KaderSaad')->accessToken;
         return response()->json(['token'=> $token],200);
