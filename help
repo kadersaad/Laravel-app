@@ -41,3 +41,11 @@ npm run build
 
 //after this commande add 
 php artisan migrate
+
+
+//api,  install Passport
+composer require laravel/passport -W
+
+php artisan migrate
+
+php artisan passport:install
